@@ -1,0 +1,117 @@
+{% load static %}
+
+{% block content %}
+
+  <aside class="sidebar">
+
+    <div class="company-logo">
+      <a href="#">
+        <img src="{% static 'img/corpusLogo.png' %}" alt="company logo">
+      </a>
+      
+    </div>
+    <div class="d-flex">
+      <button class="toggle-btn" type="button">
+        <img src="{% static "img/sidebar/menu_icon.png" %}" alt="Menu Icon" />
+      </button>
+      <div class="sidebar-logo">
+        <a href="#">Corpus Sigorta</a>
+      </div>
+    </div>
+    <ul class="sidebar-nav">
+      <li class="sidebar-item">
+        <a href="#" class="sidebar-link">
+          <img src="{% static "img/sidebar/home_icon.png" %}" alt="Menu Icon" />
+          <span>Anasayfa</span>
+        </a>
+      </li>
+
+
+      <li class="sidebar-item">
+        <a
+          href="#"
+          class="sidebar-link collapsed has-dropdown"
+          data-bs-toggle="collapse"
+          data-bs-target=".company"
+          aria-expanded="false"
+          aria-controls="company"
+        >
+          <img src="{% static "img/sidebar/production_icon.png" %}" alt="Menu Icon" />  
+          <span>Üretim Raporları</span>
+        </a>
+        <ul
+          class="company sidebar-dropdown list-unstyled collapse"
+          data-bs-parent=".sidebar"
+        >
+          <li class="sidebar-item">
+            <a href="#" class="sidebar-link">Otorizasyona Düşen Kaıtlar</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="#" class="sidebar-link">Contact</a>
+          </li>
+        </ul>
+      </li>
+
+
+      {% comment %} <li class="sidebar-item">
+        <a
+          href="#"
+          class="sidebar-link collapsed has-dropdown"
+          data-bs-toggle="collapse"
+          data-bs-target=".tools"
+          aria-expanded="false"
+          aria-controls="tools"
+        >
+          <i class="fas fa-wrench"></i>
+          <span>Tools</span>
+        </a>
+        <ul
+          class="tools sidebar-dropdown list-unstyled collapse"
+          data-bs-parent=".sidebar"
+        >
+          <li class="sidebar-item">
+            <a
+              href="#"
+              class="sidebar-link collapsed"
+              data-bs-toggle="collapse"
+              data-bs-target=".drop-two"
+              aria-expanded="false"
+              aria-controls="drop-two"
+            >
+              Guides
+            </a>
+            <ul class="drop-two sidebar-dropdown list-unstyled collapse">
+              <li class="sidebar-item">
+                <a href="#" class="sidebar-link">Start a Blog</a>
+              </li>
+              <li class="sidebar-item">
+                <a href="#" class="sidebar-link">Start a Website</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li> {% endcomment %}
+      
+      <li class="sidebar-item">
+        <a href="#" class="sidebar-link">
+          <span>Notifications</span>
+        </a>
+      </li>
+
+
+      <li class="sidebar-item">
+        <a href="#" class="sidebar-link">
+          <span>Settings</span>
+        </a>
+      </li>
+
+    </ul>
+    <div class="sidebar-footer">
+      <a href="#" class="sidebar-link">
+        <img src="{% static "img/sidebar/logout.png" %}" alt="Menu Icon" />
+        <span>Logout</span>
+      </a>
+    </div>
+  </aside>
+
+  {% endblock  %}
