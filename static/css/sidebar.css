@@ -40,9 +40,7 @@ li {
   list-style: none;
 }
 
-.wrapper {
-  display: flex;
-}
+
 
 .sidebar {
   /*    width: 260px;
@@ -165,17 +163,4 @@ li {
 
 .sidebar .sidebar-footer {
   margin-bottom: 1.5rem;
-}
-
-.main {
-  min-height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  background-color: #fafbfe;
-  transition: 0.35s ease-in-out;
-}
-
-.main h1 {
-  font-size: 1.5rem;
-  font-weight: 600;
 }

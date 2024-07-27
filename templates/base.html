@@ -16,17 +16,12 @@
 </head>
 <body>
 
-    <div class="wrapper">
-        
-        {% include "partials/_sidebar.html" %}
-        
-        <div class="main p-4">
-            
-            {% include "partials/_navbar.html" %}
+    {% include "partials/_sidebar.html" %}            
+    {% include "partials/_navbar.html" %}
            
-        </div>
+
     
-    </div>
+    
     
     
     {% block content %}{% endblock %}
