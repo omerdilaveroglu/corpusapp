@@ -215,3 +215,43 @@ width: 40px;
 .sub-sidebar-item{
   padding-left: 35px;
 }
+
+
+/* 
+card icon 
+*/
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+}
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.card img {
+  width: 50px; /* İkon boyutunu burada ayarlayabilirsiniz */
+  height: 50px;
+  margin-bottom: 10px;
+}
+.visitors {
+  background-color: #007bff;
+  color: #fff;
+}
+.subscribers {
+  background-color: #17a2b8;
+  color: #fff;
+}
+.sales {
+  background-color: #28a745;
+  color: #fff;
+}
+.orders {
+  background-color: #6f42c1;
+  color: #fff;
+}
+/* 
+card icon 
+*/
