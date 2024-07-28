@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Ana Sayfa {%endblock%}
+{% block page_title %} Ana Sayfa {%endblock%}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card visitors">
+                <div class="card-icon">
+                    <img src="{% static "img/oto_icon.png" %}" alt="Icon">
+                </div>
+                <div class="card-title">Trafik Net Adet</div>
+                <div class="card-value">1134</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card subscribers">
+                <div class="card-icon">
+                    <img src="{% static "img/general_icon.png" %}" alt="Icon">
+                </div>
+                <div class="card-title">Trafik Net Prim</div>
+                <div class="card-value">6,515,342.91 ₺</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card sales">
+                <div class="card-icon">
+                    <img src="{% static "img/oto_icon.png" %}" alt="Icon">
+                </div>
+                <div class="card-title">Genel Net Adet</div>
+                <div class="card-value">1249</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card orders">
+                <div class="card-icon">
+                    <img src="{% static "img/oto_icon.png" %}" alt="Icon">
+                </div>
+                <div class="card-title">Genel Net Prim</div>
+                <div class="card-value">6,575,971.17 ₺</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock%}
+
+
+
+

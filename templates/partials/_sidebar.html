@@ -13,7 +13,7 @@
 
     <ul class="sidebar-nav">
         <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+            <a href="{% url "home_page" %}" class="sidebar-link">
                 <img src="{% static 'img/sidebar/home_icon.png' %}" alt="company logo" class="side-bar-menu-icon">                
                 <i class="lni lni-user"></i>
                 <span>Anasayfa</span>
@@ -29,11 +29,11 @@
             <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                 <li class="sidebar-item">
                     <div class="sub-sidebar-item">
-                        <a href="#" class="sidebar-link">Üretim</a>
+                        <a href={% url "home_page" %}#" class="sidebar-link">Üretim</a>
                 </li>
                 <li class="sidebar-item">
                     <div class="sub-sidebar-item">
-                        <a href="#" class="sidebar-link">Saatlik Üretim</a>
+                        <a href="{% url "hour_production" %}" class="sidebar-link">Saatlik Üretim</a>
                     </div>  
                 </li>
             </ul>
