@@ -1,13 +1,55 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
 
-{% block title %} Ana Sayfa {%endblock%}
-{% block page_title %} Ana Sayfa {%endblock%}
+{% block page_title %}Sayfa Başlığı{% endblock %}
 
+{% block css_files %}
+<style>
+    .card-container {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+    .card {
+        border: none;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 20px;
+        color: white;
+    }
+    .card.visitors {
+        background-color: #007bff;
+    }
+    .card.subscribers {
+        background-color: #17a2b8;
+    }
+    .card.sales {
+        background-color: #28a745;
+    }
+    .card.orders {
+        background-color: #6f42c1;
+    }
+    .card-icon img {
+        width: 50px;
+        height: 50px;
+    }
+    .card-title {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    .card-value {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+</style>
+{% endblock css_files %}
 
 {% block content %}
-
-<div class="container">
+<div class="container card-container">
     <div class="row">
         <div class="col-md-3">
             <div class="card visitors">
@@ -15,7 +57,7 @@
                     <img src="{% static "img/oto_icon.png" %}" alt="Icon">
                 </div>
                 <div class="card-title">Trafik Net Adet</div>
-                <div class="card-value">1134</div>
+                <div class="card-value" data-target="1134">0</div>
             </div>
         </div>
         <div class="col-md-3">
@@ -24,7 +66,7 @@
                     <img src="{% static "img/general_icon.png" %}" alt="Icon">
                 </div>
                 <div class="card-title">Trafik Net Prim</div>
-                <div class="card-value">6,515,342.91 ₺</div>
+                <div class="card-value" data-target="6515342.91">0</div>
             </div>
         </div>
         <div class="col-md-3">
@@ -33,7 +75,7 @@
                     <img src="{% static "img/oto_icon.png" %}" alt="Icon">
                 </div>
                 <div class="card-title">Genel Net Adet</div>
-                <div class="card-value">1249</div>
+                <div class="card-value" data-target="1249">0</div>
             </div>
         </div>
         <div class="col-md-3">
@@ -42,14 +84,48 @@
                     <img src="{% static "img/oto_icon.png" %}" alt="Icon">
                 </div>
                 <div class="card-title">Genel Net Prim</div>
-                <div class="card-value">6,575,971.17 ₺</div>
+                <div class="card-value" data-target="6575971.17">0</div>
             </div>
         </div>
     </div>
 </div>
+{% endblock content %}
 
-{% endblock%}
+{% block js_files %}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const counters = document.querySelectorAll('.card-value');
+        counters.forEach(counter => {
+            const updateCounter = () => {
+                const target = parseFloat(counter.getAttribute('data-target'));
+                const count = parseFloat(counter.innerText.replace(/,/g, ''));
 
+                let increment;
+                if (counter.parentElement.classList.contains('visitors') || counter.parentElement.classList.contains('sales')) {
+                    // No decimal points for these classes
+                    increment = Math.ceil(target / 200);
+                } else {
+                    // Decimal points for other classes
+                    increment = target / 200;
+                }
 
-
-
+                if (count < target) {
+                    if (counter.parentElement.classList.contains('visitors') || counter.parentElement.classList.contains('sales')) {
+                        counter.innerText = Math.ceil(count + increment);
+                    } else {
+                        counter.innerText = (count + increment).toFixed(2).toLocaleString('en-US') + ' ₺';
+                    }
+                    setTimeout(updateCounter, 10);
+                } else {
+                    if (counter.parentElement.classList.contains('visitors') || counter.parentElement.classList.contains('sales')) {
+                        counter.innerText = target;
+                    } else {
+                        counter.innerText = target.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' ₺';
+                    }
+                }
+            };
+            updateCounter();
+        });
+    });
+</script>
+{% endblock js_files %}
