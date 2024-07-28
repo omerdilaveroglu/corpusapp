@@ -1,43 +1,41 @@
 {% load static %}
 
 <aside id="sidebar">
-    <div class="d-flex">
+
+    <div class="d-flex align-items-center">
         <button class="toggle-btn" type="button">
-            <i class="lni lni-grid-alt"></i>
+            <img src="{% static 'img/sidebar/menu_icon.png' %}" alt="company logo" class="side-bar-menu-icon">
         </button>
         <div class="sidebar-logo">
-            <a href="#">CodzSword</a>
+            <a href="#">Corpus Sigorta</a>
         </div>
     </div>
+
     <ul class="sidebar-nav">
         <li class="sidebar-item">
             <a href="#" class="sidebar-link">
+                <img src="{% static 'img/sidebar/home_icon.png' %}" alt="company logo" class="side-bar-menu-icon">                
                 <i class="lni lni-user"></i>
-                <span>Profile</span>
-            </a>
-        </li>
-        <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
-                <i class="lni lni-agenda"></i>
-                <span>Task</span>
+                <span>Anasayfa</span>
             </a>
         </li>
         <li class="sidebar-item">
             <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                 data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-                <i class="lni lni-protection"></i>
-                <span>Auth</span>
+                
+                <img src="{% static 'img/sidebar/production_icon.png' %}" alt="company logo" class="side-bar-menu-icon">
+                <span>Üretim Raporları</span>
             </a>
             <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">Login</a>
+                    <a href="#" class="sidebar-link">Üretim</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">Register</a>
+                    <a href="#" class="sidebar-link">Saatlik Üretim</a>
                 </li>
             </ul>
         </li>
-        <li class="sidebar-item">
+        {% comment %} <li class="sidebar-item">
             <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                 data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
                 <i class="lni lni-layout"></i>
@@ -59,15 +57,11 @@
                     </ul>
                 </li>
             </ul>
-        </li>
+        </li> {% endcomment %}
+
         <li class="sidebar-item">
             <a href="#" class="sidebar-link">
-                <i class="lni lni-popup"></i>
-                <span>Notification</span>
-            </a>
-        </li>
-        <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+                <img src="{% static 'img/sidebar/setting_icon.png' %}" alt="company logo" class="side-bar-menu-icon">   
                 <i class="lni lni-cog"></i>
                 <span>Setting</span>
             </a>
@@ -75,6 +69,7 @@
     </ul>
     <div class="sidebar-footer">
         <a href="#" class="sidebar-link">
+            <img src="{% static 'img/sidebar/logout_icon.png' %}" alt="company logo" class="side-bar-menu-icon">   
             <i class="lni lni-exit"></i>
             <span>Logout</span>
         </a>
