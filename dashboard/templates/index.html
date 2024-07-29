@@ -215,6 +215,41 @@
         });
     });
 
+    document.addEventListener("DOMContentLoaded", function() {
+        const counters = document.querySelectorAll('.card-value');
+        counters.forEach(counter => {
+            const updateCounter = () => {
+                const target = parseFloat(counter.getAttribute('data-target'));
+                const count = parseFloat(counter.innerText.replace(/,/g, ''));
+
+                let increment;
+                if (counter.parentElement.classList.contains('visitors') || counter.parentElement.classList.contains('sales')) {
+                    // No decimal points for these classes
+                    increment = Math.ceil(target / 200);
+                } else {
+                    // Decimal points for other classes
+                    increment = target / 200;
+                }
+
+                if (count < target) {
+                    if (counter.parentElement.classList.contains('visitors') || counter.parentElement.classList.contains('sales')) {
+                        counter.innerText = Math.ceil(count + increment);
+                    } else {
+                        counter.innerText = (count + increment).toFixed(2).toLocaleString('en-US') + ' ₺';
+                    }
+                    setTimeout(updateCounter, 10);
+                } else {
+                    if (counter.parentElement.classList.contains('visitors') || counter.parentElement.classList.contains('sales')) {
+                        counter.innerText = target;
+                    } else {
+                        counter.innerText = target.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' ₺';
+                    }
+                }
+            };
+            updateCounter();
+        });
+    });
+
 
 
 </script>
